@@ -13,8 +13,8 @@ int umeyama(double* _setOfPointsA,
 	if (size < 1)                 return UMEYAMA_ERRORS::SIZE_OF_SETS_IS_WRONG;
 	if (_transform == nullptr)    return UMEYAMA_ERRORS::TRANSFORM_MATRIX_IS_NULL;
 
-	Eigen::MatrixXd setOfPointsA = Eigen::Map<Eigen::MatrixXd>(_setOfPointsA, size / 3, 3);
-	Eigen::MatrixXd setOfPointsB = Eigen::Map<Eigen::MatrixXd>(_setOfPointsB, size / 3, 3);
+	Eigen::MatrixXd setOfPointsA = Eigen::Map<Eigen::MatrixXd>(_setOfPointsA, size / 3, 3).transpose();
+	Eigen::MatrixXd setOfPointsB = Eigen::Map<Eigen::MatrixXd>(_setOfPointsB, size / 3, 3).transpose();
 
 	typedef Eigen::Matrix<double, 4, 4, Eigen::RowMajor> Eigen4x4MatrixRowMajor;
 	typedef Eigen::Matrix<double, 4, 4, Eigen::ColMajor> Eigen4x4MatrixColMajor;
